@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时间格式化</title>
+    <style>
+        .wrap{
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 500px;
+            height: 100px;
+            background-color: #eee;
+
+
+            position:relative;
+background:hsl(38, 100%, 50%);
+width:80rpx;
+height:30rpx;
+margin-left:10rpx;
+border-radius:35rpx;
+color:white;
+font-size:18rpx;
+display:inline-block;
+top:-20rpx;
+
+
+        }
+        .box{
+            width: 100px;
+        }
+
+        .box1{
+            background-color: blanchedalmond;
+        }
+        .box2{
+            background-color: #aaa;
+        }
+
+        .box3{
+            background-color: #676767;
+        }
+    </style>
+</head>
+
+<body>
+
+        <view class='gameTipwrap mr155' wx:if="{{item.type!=1}}">
+                <view>娱乐中</view>
+              </view>
+              <view class='gameTipwrap mr155' wx:if="{{item.type!=1}}">
+                <view>访问中</view>
+              </view>
+    <div class="wrap">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+    </div>
+    <script>
+        const formatTime = date => {
+            const year = date.getFullYear()
+            const month = date.getMonth() + 1
+            const day = date.getDate()
+            const hour = date.getHours()
+            const minute = date.getMinutes()
+            const second = date.getSeconds()
+
+            return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+        }
+
+        const formatNumber = n => {
+            n = n.toString()
+            return n[1] ? n : '0' + n
+        }
+    </script>
+
+    <script>
+        var d = new Date()
+        console.log(formatTime(d))
+    </script>
+</body>
+
+</html>

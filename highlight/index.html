@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>prism.js</title>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" href="styles/dark.css"> -->
+    <link rel="stylesheet" href="../vue.css">
+    <script src="highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<h1>highlight.js</h1>
+<!-- mv prism.js prism.css /Users/secsmarts/Documents/start/wheels -->
+<pre>
+    <code class="language-javascript">
+        function selectionSort(arr){
+            var minIndex, temp, len = arr.length;
+            for(var i=0; i < len; i++){
+                minIndex = i;
+                for(var j=i+1; j < len; j++){
+                    if(arr[j] < arr[minIndex]){
+                        minIndex = j;
+                    }
+                }
+                temp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = temp;
+            }
+            return arr;
+        }
+        var num = new Array;
+        num = [1,5,2,8,4,9,3,0,4];
+        console.log(selectionSort(num));
+    </code>
+</pre>
+ <pre>
+     <code>
+            ## 获取 SSH 公钥
+            ```
+            cat ~/.ssh/id_rsa.pub
+            ```
+     </code>
+ </pre>
+
+</body>
+</html>

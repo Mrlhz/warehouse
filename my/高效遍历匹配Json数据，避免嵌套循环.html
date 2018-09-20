@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>高效遍历匹配Json数据，避免嵌套循环</title>
+</head>
+
+<body>
+    <script>
+        // 缓存数据
+        var students = [
+            { id: 35, name: '小明', age: 25, address: '环球中心', checked: true },
+            { id: 36, name: '杰伦', age: 41, address: '中国台湾', checked: true },
+            { id: 37, name: '不撸死', age: 46, address: '霉国', checked: true }
+        ]
+        console.log(students)
+
+        // 最新数据
+        var data = [
+            { id: 35, name: '小明', age: 25, address: '环球中心', checked: false },
+            { id: 36, name: '杰伦', age: 41, address: '中国台湾', checked: false },
+            { id: 37, name: '不撸死', age: 46, address: '霉国', checked: false },
+            { id: 38, name: '大名', age: 46, address: '哈哈哈哈哈', checked: false },
+            { id: 39, name: '中明', age: 46, address: '中国四川', checked: false }
+        ]
+
+        for (let s of students) {
+            document.write(`id: ${s.id}, name: ${s.name}, age: 25, address: ${s.address}, checked: ${s.checked}<br/>`)
+        }
+        // 将数组转换为json对象
+        function Array2Json(arr, obj = {}) {
+            arr.forEach(item => {
+                obj[item.id] = item;
+            })
+
+            return obj
+        }
+
+        students = Array2Json(students);
+        console.log(students)
+        // 此处可以用for循环，但是推荐使用while，因为while比for效率高
+
+        let i = 0;
+        while (i < data.length) {
+            if (students[data[i].id]) {
+                data[i].checked = true
+            }
+            i++;
+        }
+        // 最终得到的data就是还原了勾选状态的数据，可以直接渲染在界面上
+        console.log(data)
+
+    </script>
+</body>
+
+</html>

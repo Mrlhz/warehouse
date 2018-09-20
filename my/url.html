@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var url = 'http://10.1.3.40:8088/secsmarts/getAssets?uid=oU5Kt4typwCu3njFklf8K4khmHF4&gid=MDI6MDE6MEY6REE6MkE6OTg%3D&sessionId=undefined&actionType=refresh'
+        var u = url.split('?')[1].split('=')[1]
+
+        var buz = {
+            fog: 'stack'
+        };
+        for (const key in buz) {
+            if (buz.hasOwnProperty(key)) {
+                const element = buz[key];
+                console.log(element)
+            }
+        }
+    </script>
+</body>
+
+</html>

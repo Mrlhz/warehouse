@@ -41,6 +41,18 @@
             ```
      </code>
  </pre>
-
+<script>
+    var arr = [1,2,3];
+    var c   = [3,4,5,1];
+    var result = [];
+    if(arr.length){
+        arr.map(function(item){
+            if(c.includes(item)){
+                result.push(item)
+            }
+        })
+    }
+    console.log(result)
+</script>
 </body>
 </html>
